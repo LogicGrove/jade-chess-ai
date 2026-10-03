@@ -2,13 +2,13 @@
 
 # Jade Chess AI · 2.2.1
 
+**Español** | [English](README.en.md)
+
 **Una IA de ajedrez híbrida que busca jugar de forma humana, no solo encontrar la mejor jugada.**
 
 Jade combina Stockfish, estadísticas de partidas reales de Lichess y una red neuronal compacta. Permite experimentar con perfiles de juego, entrenar un predictor de movimientos humanos, jugar en un tablero interactivo y analizar partidas PGN.
 
 Proyecto educativo impulsado por **Manu**, desarrollado de forma iterativa con ayuda de herramientas de IA. Estado: **experimental**. No está afiliado a Stockfish, Lichess, Google ni Hugging Face.
-
-**English:** Experimental human-like chess AI combining Stockfish, Lichess game statistics and a compact trainable neural policy, with a Colab interface and PGN analysis.
 
 ## Qué incluye
 
@@ -39,7 +39,7 @@ Proyecto educativo impulsado por **Manu**, desarrollado de forma iterativa con a
 
 El cuaderno contiene el programa completo: no necesitas subir los `.py` por separado. En una sesión nueva se deben volver a ejecutar las celdas de inicio. **3B también restaura copias v2: no convierte otra vez una memoria ya convertida.** Utiliza un único cuaderno activo por memoria.
 
-Para crear un enlace directo después de publicar, el enlace del repositorio de LogicGrove es:
+Enlace directo al cuaderno en Colab:
 
 ```text
 https://colab.research.google.com/github/LogicGrove/jade-chess-ai/blob/main/Jade_Colab_2_2_1.ipynb

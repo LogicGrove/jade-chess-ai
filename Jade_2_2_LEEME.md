@@ -1,5 +1,7 @@
 # Jade 2.2.1: enseñanza avanzada opcional
 
+**Español** | [English](Jade_2_2_LEEME.en.md) · [README principal](README.md)
+
 Esta actualización conserva la memoria v2, las partidas y los modelos 2.0/2.1.
 No contiene tus datos ni tus pesos: los recupera de tu carpeta existente de Drive.
 No vuelve a convertir una memoria v2 ni necesita descargar nuevamente las partidas.
@@ -138,7 +140,7 @@ Más coincidencia con humanos en test no demuestra mayor fuerza del rival híbri
 
 1. Si el cuaderno anterior sigue activo, termina la tarea y guarda la memoria con 7.
    Los pesos se guardan durante el entrenamiento; 7 guarda la memoria, no entrena.
-2. Descarga `Jade_Colab.ipynb` actualizado y ábrelo en Colab como una copia nueva.
+2. Descarga `Jade_Colab_2_2_1.ipynb` actualizado y ábrelo en Colab como una copia nueva.
    Conserva el cuaderno anterior como referencia y utiliza un único cuaderno activo
    por carpeta de memoria/modelos.
 3. En 2 selecciona la misma cuenta, carpeta de Drive y ritmo (`rapid` o `blitz`).
