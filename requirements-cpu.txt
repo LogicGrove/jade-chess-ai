@@ -1,0 +1,3 @@
+# Para Jade_Ligero.py y un modelo/memoria previamente exportados.
+python-chess==1.999
+numpy>=1.26,<3

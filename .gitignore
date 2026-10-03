@@ -1,0 +1,56 @@
+# Entorno y cachés
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.DS_Store
+Thumbs.db
+# Secretos: revisar además manualmente notebooks y logs
+.env
+.env.*
+!.env.example
+credentials*.json
+token*.json
+client_secret*.json
+# Datos, memoria, copias y pesos privados
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.parquet
+*.arrow
+*.feather
+*.pgn
+*.pgn.*
+*.zst
+*.gz
+*.npz
+*.npy
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.zip
+datos/
+data/
+modelos/
+models/
+copias/
+copias_v2/
+analisis/
+partidas/
+revision_calidad/
+calidad_22/
+drive/
+# Binarios externos y salidas de comprobación
+stockfish
+stockfish.exe
+bin/
+qa_report.html
+qa_pgn_*.png
+# Salida temporal del constructor: el notebook publicado tiene nombre versionado
+Jade_Colab.ipynb

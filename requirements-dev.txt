@@ -1,0 +1,4 @@
+-r requirements.txt
+nbformat>=5,<6
+# Entrenamiento/pruebas: instalar PyTorch según el sistema desde pytorch.org.
+# Prueba visual opcional: instalar Playwright y Chromium por separado.
