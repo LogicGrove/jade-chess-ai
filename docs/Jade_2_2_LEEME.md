@@ -1,6 +1,6 @@
 # Jade 2.2.1: enseñanza avanzada opcional
 
-**Español** | [English](Jade_2_2_LEEME.en.md) · [README principal](README.md)
+**Español** | [English](Jade_2_2_LEEME.en.md) · [README principal](../README.md)
 
 Esta actualización conserva la memoria v2, las partidas y los modelos 2.0/2.1.
 No contiene tus datos ni tus pesos: los recupera de tu carpeta existente de Drive.

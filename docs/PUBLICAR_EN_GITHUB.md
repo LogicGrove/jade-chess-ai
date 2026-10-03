@@ -128,7 +128,7 @@ GitHub exige al menos **13 años**, y el mínimo puede ser superior en algunos p
 
 - [ ] He leído y aceptado GPL-3.0-or-later para el código propio y revisado el crédito.
 - [ ] No hay datos, modelos privados, secretos, salidas de notebook ni binarios externos.
-- [ ] README, notebook 2.2.1, fuentes y licencia están en la raíz.
+- [ ] README, notebook 2.2.1 y licencia están en la raíz; las fuentes están en `src/` y la documentación completa en `docs/`.
 - [ ] Hay una explicación de instalación, aprendizaje, guardado y limitaciones.
 - [ ] El enlace Colab utiliza el usuario y la rama reales.
 - [ ] Los perfiles son objetivos de estilo, no ELO certificado.

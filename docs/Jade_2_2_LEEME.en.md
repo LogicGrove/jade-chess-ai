@@ -1,6 +1,6 @@
 # Jade 2.2.1: optional advanced teaching
 
-[Español](Jade_2_2_LEEME.md) | **English** · [Main README](README.en.md)
+[Español](Jade_2_2_LEEME.md) | **English** · [Main README](../README.en.md)
 
 This update preserves the v2 memory, games and 2.0/2.1 models.
 It does not contain your data or weights: it restores them from your existing Drive folder.

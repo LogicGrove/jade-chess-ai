@@ -6,8 +6,8 @@ Gracias por ayudar a mejorar este prototipo educativo. Usa Issues para fallos o 
 
 1. Trabaja en una rama y conserva las copias originales de memoria y modelos.
 2. Instala las dependencias de `requirements-dev.txt`. Para pruebas de entrenamiento, instala PyTorch según [sus instrucciones oficiales](https://pytorch.org/get-started/locally/). Instala Stockfish compatible aparte.
-3. Edita las fuentes `jade_*.py` pertinentes. El constructor selecciona y concatena partes de estas fuentes: no todos los módulos son bibliotecas autónomas importables por separado.
-4. Ejecuta `python build_jade_v3.py` desde la raíz del repositorio. Genera `Jade_Programa.py`, `Jade_Ligero.py` y `Jade_Colab.ipynb`.
+3. Edita las fuentes `src/jade_*.py` pertinentes. El constructor selecciona y concatena partes de estas fuentes: no todos los módulos son bibliotecas autónomas importables por separado.
+4. Ejecuta `python scripts/build_jade_v3.py` desde la raíz del repositorio. Genera `src/Jade_Programa.py`, `src/Jade_Ligero.py` y `Jade_Colab.ipynb`.
 5. Si estás actualizando la versión publicada, revisa el notebook generado y copia su contenido al nombre versionado correspondiente. El builder no actualiza automáticamente `Jade_Colab_2_2_1.ipynb`.
 6. Revisa diferencias, limpia salidas de notebooks y no agregues checkpoints o informes privados.
 
@@ -16,13 +16,13 @@ No edites solo el programa concatenado: la siguiente regeneración podría perde
 ## Comprobaciones existentes
 
 ```bash
-python verify_jade_advanced.py
-python verify_jade_v22.py
+python tests/verify_jade_advanced.py
+python tests/verify_jade_v22.py
 ```
 
 Estos scripts usan datos de prueba temporales, algunas búsquedas reales con Stockfish y entrenamiento CPU. Revisa sus rutas y dependencias antes de ejecutarlos; requieren más que las dependencias ligeras.
 
-`verify_jade_v22.py` genera `qa_report.html`. La prueba visual `verify_pgn_v22.py` lo necesita: ejecuta primero el anterior. También necesita Playwright y Chromium instalados. Los scripts no sustituyen una prueba completa dentro de Colab o una medición de fuerza.
+`tests/verify_jade_v22.py` genera `qa_report.html`. La prueba visual `tests/verify_pgn_v22.py` lo necesita: ejecuta primero el anterior. También necesita Playwright y Chromium instalados. Los scripts no sustituyen una prueba completa dentro de Colab o una medición de fuerza.
 
 Esta publicación incluye los scripts, pero no promete que todas las plataformas y versiones futuras de dependencias hayan pasado las pruebas. Describe siempre qué ejecutaste y en qué entorno.
 
