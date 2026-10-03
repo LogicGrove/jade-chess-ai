@@ -10,6 +10,9 @@ import nbformat
 import numpy as np
 import torch
 from threadpoolctl import threadpool_limits
+import sys
+REPO_ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(REPO_ROOT/'src'))
 import Jade_Programa as j
 
 ROOT=Path(tempfile.mkdtemp(prefix="jade22-check-"))

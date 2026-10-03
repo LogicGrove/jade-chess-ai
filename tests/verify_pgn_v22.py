@@ -1,5 +1,8 @@
 from pathlib import Path
 import json
+import sys
+REPO_ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(REPO_ROOT/'src'))
 import Jade_Programa as j
 from playwright.sync_api import sync_playwright
 

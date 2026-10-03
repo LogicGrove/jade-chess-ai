@@ -11,6 +11,9 @@ import chess.pgn
 import numpy as np
 import pyarrow as pa
 import pyarrow.parquet as pq
+import sys
+REPO_ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(REPO_ROOT/'src'))
 import Jade_Programa as j
 
 root=Path(tempfile.mkdtemp(prefix="jade-advanced-check-"))
