@@ -4,11 +4,13 @@ import json
 from pathlib import Path
 from textwrap import dedent
 
-base=json.loads(Path('Jade_v12_base.ipynb').read_text())
+REPO_ROOT=Path(__file__).resolve().parents[1]
+SOURCE_DIR=REPO_ROOT/'src'
+base=json.loads((REPO_ROOT/'scripts'/'templates'/'Jade_v12_base.ipynb').read_text())
 def source(cell):
     return ''.join(cell['source']) if isinstance(cell['source'],list) else cell['source']
 def selected(path,names):
-    text=Path(path).read_text();tree=ast.parse(text)
+    text=(SOURCE_DIR/path).read_text();tree=ast.parse(text)
     return '\n\n'.join(ast.get_source_segment(text,node) for node in tree.body if getattr(node,'name',None) in names)
 
 light='''"""Jade 2.2.1 en CPU: requiere numpy, python-chess y un Stockfish local."""
@@ -23,8 +25,8 @@ def rating_band(rating):
 '''
 light+=selected('jade_storage_v3.py',{'pack_position','unpack_move','jade_position_id'})+'\n'
 light+=selected('jade_policy.py',{'jade_context','encode_jade','NumpyJadePolicy'})+'\n'
-light+=Path('jade_engine_v2.py').read_text()+'\nClassicJadeEngine=JadeEngine\n'
-light+=Path('jade_hybrid_v3.py').read_text()
+light+=(SOURCE_DIR/'jade_engine_v2.py').read_text()+'\nClassicJadeEngine=JadeEngine\n'
+light+=(SOURCE_DIR/'jade_hybrid_v3.py').read_text()
 light+='''
 class ReadOnlyMemory:
     def __init__(self,path):
@@ -80,19 +82,19 @@ def main():
 if __name__=='__main__':
     main()
 '''
-Path('Jade_Ligero.py').write_text(light)
+(SOURCE_DIR/'Jade_Ligero.py').write_text(light)
 
-core=Path('jade_core.py').read_text().split('\nclass JadeEngine:',1)[0]
+core=(SOURCE_DIR/'jade_core.py').read_text().split('\nclass JadeEngine:',1)[0]
 core=core.replace('Jade 1.0: Stockfish MultiPV + Boltzmann + frecuencias humanas persistentes.',
                   'Jade 2.2.1: predictor humano compacto, enseñanza avanzada y memoria persistente.')
 core=core.replace('("WhiteTitle", "BlackTitle")','("WhiteTitle", "BlackTitle", "TimeControl")')
 core+='\nLegacyJadeMemory=JadeMemory\nlegacy_restore_memory=restore_memory\nlegacy_save_memory=save_memory\n'
-core+='\n'+Path('jade_storage_v3.py').read_text()+'\n'+Path('jade_policy.py').read_text()
-core+='\n'+Path('jade_quality.py').read_text()
-core+='\n'+Path('jade_advanced.py').read_text()
-core+='\n'+Path('jade_reports.py').read_text()
-core+='\n'+Path('jade_engine_v2.py').read_text()+'\nClassicJadeEngine=JadeEngine\n'
-core+='\n'+Path('jade_hybrid_v3.py').read_text()+'\n'+Path('jade_ui.py').read_text()+'\n'+Path('jade_pgn.py').read_text()
+core+='\n'+(SOURCE_DIR/'jade_storage_v3.py').read_text()+'\n'+(SOURCE_DIR/'jade_policy.py').read_text()
+core+='\n'+(SOURCE_DIR/'jade_quality.py').read_text()
+core+='\n'+(SOURCE_DIR/'jade_advanced.py').read_text()
+core+='\n'+(SOURCE_DIR/'jade_reports.py').read_text()
+core+='\n'+(SOURCE_DIR/'jade_engine_v2.py').read_text()+'\nClassicJadeEngine=JadeEngine\n'
+core+='\n'+(SOURCE_DIR/'jade_hybrid_v3.py').read_text()+'\n'+(SOURCE_DIR/'jade_ui.py').read_text()+'\n'+(SOURCE_DIR/'jade_pgn.py').read_text()
 core+='''
 def memory_report(memory):
     report=memory.summary()
@@ -105,7 +107,7 @@ def memory_report(memory):
     return report
 '''
 core+='\nJADE_LIGHT_SOURCE='+repr(light)+'\n'
-Path('Jade_Programa.py').write_text(core)
+(SOURCE_DIR/'Jade_Programa.py').write_text(core)
 
 cells=[]
 def md(text):
@@ -549,5 +551,5 @@ La ruta CUDA/FP16 y tu conexión Colab/Drive requieren verificación en ese ento
 for i,cell in enumerate(cells):
     cell['id']=f'jade2-{i:02d}'
 base['cells']=cells
-Path('Jade_Colab.ipynb').write_text(json.dumps(base,ensure_ascii=False,indent=2))
+(REPO_ROOT/'Jade_Colab.ipynb').write_text(json.dumps(base,ensure_ascii=False,indent=2))
 print('Jade 2.2.1 construido:',len(cells),'celdas')
